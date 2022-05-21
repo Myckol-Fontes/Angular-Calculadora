@@ -1,11 +1,14 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { CalculadoraComponent } from './componentes';
+import { CalculadoraComponent } from './calculadora';
 
 
 
 @NgModule({
   declarations: [
+    CalculadoraComponent
+  ],
+  exports: [
     CalculadoraComponent
   ],
   imports: [
