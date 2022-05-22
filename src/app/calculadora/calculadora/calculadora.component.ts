@@ -101,6 +101,22 @@ export class CalculadoraComponent implements OnInit {
   	}
   }
 
+  /**
+   * Efetua o cálculo de uma operação.
+   *
+   * @return void
+   */
+  calcular(): void {
+  	if (this.numero2 === null) {
+  		return;
+  	}
+
+  	this.resultado = this.calculadoraService.calcular(
+  		parseFloat(this.numero1),
+  		parseFloat(this.numero2),
+  		this.operacao);
+  }
+
 
 
 }
