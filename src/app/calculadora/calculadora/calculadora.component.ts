@@ -31,7 +31,4 @@ export class CalculadoraComponent implements OnInit {
   	this.resultado = null;
   	this.operacao = null;
   }
-
-
-
 }
