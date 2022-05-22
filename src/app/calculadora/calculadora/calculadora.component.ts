@@ -31,4 +31,46 @@ export class CalculadoraComponent implements OnInit {
   	this.resultado = null;
   	this.operacao = null;
   }
+
+  /**
+   * Adiciona o número selecionado para o cálculo posteriormente.
+   *
+   * @param string numero
+   * @return void
+   */
+  adicionarNumero(numero: string): void {
+  	if (this.operacao === null) {
+  	  this.numero1 = this.concatenarNumero(this.numero1, numero);
+  	} else {
+  	  this.numero2 = this.concatenarNumero(this.numero2, numero);
+  	}
+  }
+
+  /**
+   * Returna o valor concatenado. Trata o separador decimal.
+   *
+   * @param string numAtual
+   * @param string numConcat
+   * @return string
+   */
+  concatenarNumero(numAtual: string, numConcat: string): string {
+  	// caso contenha apenas '0' ou null, reinicia o valor
+    if (numAtual === '0' || numAtual === null) {
+  	  numAtual = '';
+  	}
+
+    // primeiro dígito é '.', concatena '0' antes do ponto
+  	if (numConcat === '.' && numAtual === '') {
+  	  return '0.';
+  	}
+
+    // caso '.' digitado e já contenha um '.', apenas retorna
+  	if (numConcat === '.' && numAtual.indexOf('.') > -1) {
+  	  return numAtual;
+  	}
+
+  	return numAtual + numConcat;
+  }
+
+
 }
