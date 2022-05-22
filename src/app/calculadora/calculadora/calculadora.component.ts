@@ -72,5 +72,35 @@ export class CalculadoraComponent implements OnInit {
   	return numAtual + numConcat;
   }
 
+  /**
+   * Executa lógica quando um operador for selecionado.
+   * Caso já possua uma operação selecionada, executa a
+   * operação anterior, e define a nova operação.
+   *
+   * @param string operacao
+   * @return void
+   */
+  definirOperacao(operacao: string): void {
+    // apenas define a operação caso não exista uma
+  	if (this.operacao === null) {
+      this.operacao = operacao;
+      return;
+  	}
+
+    /* caso operação definida e número 2 selecionado,
+       efetua o cálculo da operação */
+  	if (this.numero2 !== null) {
+  		this.resultado = this.calculadoraService.calcular(
+  			parseFloat(this.numero1),
+  			parseFloat(this.numero2),
+  			this.operacao);
+  		this.operacao = operacao;
+  		this.numero1 = this.resultado.toString();
+  		this.numero2 = null;
+  		this.resultado = null;
+  	}
+  }
+
+
 
 }
