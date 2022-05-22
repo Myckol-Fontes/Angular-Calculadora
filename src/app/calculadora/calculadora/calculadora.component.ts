@@ -117,6 +117,19 @@ export class CalculadoraComponent implements OnInit {
   		this.operacao);
   }
 
-
+  /**
+   * Retorna o valor a ser exibido na tela da calculadora.
+   *
+   * @return string
+   */
+  get display(): string {
+  	if (this.resultado !== null) {
+  		return this.resultado.toString();
+  	}
+  	if (this.numero2 !== null) {
+  		return this.numero2;
+  	}
+  	return this.numero1;
+  }
 
 }
